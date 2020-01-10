@@ -7,7 +7,7 @@ public class ArrayQueue<T> implements Queue<T> {
     private int rear;
     private int size;
 
-    public ArrayQueue(int queueSize){
+    public ArrayQueue(){
         array = (T[])new Object[10];
         front = 0;
         rear = 0;
@@ -17,7 +17,7 @@ public class ArrayQueue<T> implements Queue<T> {
     @Override
     public void add(T input) {
         if(size == 0){
-            array[0] = input;
+            array[front] = input;
         }
         else{
             if(isFull()){
@@ -27,9 +27,9 @@ public class ArrayQueue<T> implements Queue<T> {
             else{
                 array[rear] = input;
             }
-            size++;
-            rear++;
         }
+        size++;
+        rear++;
     }
 
     @Override
@@ -52,7 +52,8 @@ public class ArrayQueue<T> implements Queue<T> {
             array[front] = null;
             front++;
             size--;
-            return array[front];
+
+            return t;
         }
     }
 
