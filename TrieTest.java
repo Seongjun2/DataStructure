@@ -12,5 +12,7 @@ public class TrieTest {
         }
 
         matcher.printWord();
+
+        System.out.println(matcher.search("ab"));
     }
 }
